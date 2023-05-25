@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #bde0fe;
+    margin-top: 10rem;
+}
+
+body * {
+    margin: 1rem;
+    text-align: center;
+}
+
+.form-control {
+    font-size: 1.2rem;
+}
+
+input {
+    font-size: 1.2rem;
+    outline: none;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    text-align: left;
+}
+
+input[type=submit] {
+    background-color: #ffafcc;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.7rem 2rem;
+}
