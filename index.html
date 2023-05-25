@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Training</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #bde0fe;
+            margin-top: 10rem;
+        }
+
+        body * {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .form-control{
+            font-size: 1.2rem;
+        }
+
+        input{
+            font-size: 1.2rem;
+            outline: none;
+            padding: 0.5rem 1.2rem;
+            border: none;
+            text-align: left;
+        }
+
+        input[type=submit] {
+            background-color:#ffafcc;
+            color: white;
+            border: none;
+            border-radius: 1rem;
+            padding: 0.7rem 2rem;
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <h1>HTML Training</h1>
+        <div class="form-control">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name">
+        </div>
+        <div class="form-control">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name">
+        </div>
+
+        <input type="submit" value="Submit" onclick="fullName()">
+    </form>
+
+    <script>
+        function fullName() {
+            var firstName = document.getElementById("firstName").value
+            var lastName = document.getElementById("lastName").value
+            alert("Full name: " + firstName + " " + lastName)
+            return
+        }
+    </script>
+</body>
+</html>
