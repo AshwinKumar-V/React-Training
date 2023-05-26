@@ -64,9 +64,9 @@
   text-align: center;
 }
 
-li:hover {
+.menu li:hover {
   cursor: pointer;
-  background-color: blue;
+  background-color: #0d6efd;
   color: white;
 }
 
