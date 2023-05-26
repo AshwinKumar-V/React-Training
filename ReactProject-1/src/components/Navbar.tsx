@@ -1,6 +1,10 @@
 import BackgroundColor from "./BackgroundColor"
 
-function Navbar() {
+interface Props {
+  alertText: string
+}
+
+function Navbar({ alertText }: Props) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,7 +28,8 @@ function Navbar() {
                   <li><a className="dropdown-item" href="#">Action 3</a></li>
                 </ul>
               </li>
-              <BackgroundColor />
+              <li className="nav-item"><BackgroundColor /></li>
+              <li className="nav-item"><button type="button" className="btn btn-outline-primary" onClick={() => document.getElementById("notification")?.classList.toggle("d-none")}>{alertText}</button></li>
             </ul>
           </div>
         </div>

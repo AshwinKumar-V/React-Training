@@ -2,6 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import Alert from './components/Alert'
 import Content from './components/Content'
 import Footer from './components/Footer'
 import Header from './components/Header'
@@ -13,7 +14,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Alert alertMessage="You're subscription is almost expiring!" />
+      <Navbar alertText='Notification' />
       <Header />
       <div className='d-flex flex-row justify-content-between menu_content_wrapper'>
         <Menu />
