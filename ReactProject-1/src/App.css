@@ -41,33 +41,40 @@
   color: #888;
 } */
 
-.header{
+.header {
   margin: 1.5rem 3rem;
 }
 
-.menu_content_wrapper{
+.menu_content_wrapper {
   height: 74vh;
 }
 
-.content{
+.content {
   width: 85vw;
   padding: 1.5rem 2rem;
   box-sizing: border-box;
 }
 
-.menu{
+.menu {
   width: 15vw;
 }
 
-.footer{
+.footer {
   margin: 1rem 3rem;
   text-align: center;
 }
 
-li:hover{
+li:hover {
   cursor: pointer;
 }
 
 .card {
- width: 18rem; 
+  width: 18rem;
+}
+
+.flex_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
