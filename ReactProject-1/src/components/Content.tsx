@@ -1,6 +1,12 @@
+import { MouseEvent } from "react"
+
 function Content() {
   const default_msg = "No new movies."
   const movies = ['Inception', 'Interstellar', 'Tenet', 'Oppenheimer']
+
+  const handleEvent = (event: MouseEvent) => {
+    console.log(event.type)
+  }
 
   return (
     <div className="content">
@@ -12,7 +18,7 @@ function Content() {
             <div className="card-body">
               <h5 className="card-title">{movie}</h5>
               <p className="card-text">Some random movie description.</p>
-              <a href="#" className="btn btn-primary" onClick={() => console.log("Watching " + movie)}>Watch Now</a>
+              <a href="#" className="btn btn-primary" onClick={handleEvent}>Watch Now</a>
             </div>
           </div>
         ))}
