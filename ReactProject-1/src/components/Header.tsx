@@ -1,5 +1,9 @@
 function Header() {
-  return <h1>Sasta Netflix</h1>;
+  return (
+    <div className="header">
+      <h1>Sasta Netflix</h1>
+    </div>
+  )
 }
 
 export default Header;

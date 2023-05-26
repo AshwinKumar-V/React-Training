@@ -6,14 +6,16 @@ import Content from './components/Content'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import Menu from './components/Menu'
+import Navbar from './components/Navbar'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
     <>
+      <Navbar />
       <Header />
-      <div>
+      <div className='d-flex flex-row justify-content-between menu_content_wrapper'>
         <Menu />
         <Content />
       </div>
