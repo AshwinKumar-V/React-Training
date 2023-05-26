@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Menu() {
-  const menu_items = ['Home', 'Movies', 'Series', 'favorites', 'Upcoming']
+  const menu_items = ['Home', 'Movies', 'Series', 'Favorites', 'Upcoming']
   const [itemSelected, updateSelectedItem] = useState('Home')
 
   return (

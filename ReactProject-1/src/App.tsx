@@ -17,7 +17,7 @@ function App() {
       <Header />
       <div className='d-flex flex-row justify-content-between menu_content_wrapper'>
         <Menu />
-        <Content />
+        <Content name="Ashwin" favoriteMovies={['Inception', 'Interstellar', 'Tenet', 'Oppenheimer']} />
       </div>
       <Footer />
     </>

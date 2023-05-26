@@ -43,16 +43,18 @@
 
 .header {
   margin: 1.5rem 3rem;
+  box-sizing: border-box;
 }
 
 .menu_content_wrapper {
-  height: 74vh;
+  height: 68vh;
 }
 
 .content {
   width: 85vw;
-  padding: 1.5rem 2rem;
+  padding: 0 2rem;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 .menu {
@@ -60,7 +62,7 @@
 }
 
 .footer {
-  margin: 1rem 3rem;
+  margin: 0.2rem 3rem;
   text-align: center;
 }
 
