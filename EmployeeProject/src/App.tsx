@@ -18,10 +18,10 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />}>
             <Route index element={<Overview />} />
-            <Route path='client-list' element={<List listType="Client" />} />
-            <Route path='client-details' element={<Details type="client" />} />
-            <Route path='user-list' element={<List listType="User" />} />
-            <Route path='user-details' element={<Details type="user" />} />
+            <Route path='clients' element={<List listType="Client" />} />
+            <Route path='clients/:id' element={<Details />} />
+            <Route path='users' element={<List listType="User" />} />
+            <Route path='users/:id' element={<Details />} />
             <Route path='about' element={<About />} />
             <Route path='help' element={<Help />} />
             <Route path='*' element={<NotFound />} />

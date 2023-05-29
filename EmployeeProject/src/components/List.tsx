@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import clients from '../assets/clients.json'
 import users from '../assets/users.json'
 
@@ -24,26 +24,24 @@ interface client {
 
 const List = ({ listType }: Props) => {
 
-    const naviagte = useNavigate()
+    const navigate = useNavigate()
 
     let list = null
-    let path = ""
     if (listType === 'Client') {
         list = clients
-        path = "/dashboard/client-details"
     }
     else if (listType === 'User') {
         list = users
-        path = "/dashboard/user-details"
     }
 
     const showDetails = (item: any) => {
-        naviagte(path, { state: item })
+        navigate(Object.values(item)[0], { state: item })
     }
 
     return (
         <>
             <h1>{listType} list</h1>
+            {listType === 'User' ? <Link to='AddUser'>Add User</Link> : null}
             <table className='table'>
                 <thead>
                     <tr>
@@ -54,7 +52,7 @@ const List = ({ listType }: Props) => {
                 </thead>
                 <tbody>
                     {list?.map((x) => (
-                        <tr>
+                        <tr key={Object.values(x)[0]}>
                             {Object.values(x).map((data, i) => (<td key={i}>{data}</td>))}
                             <td onClick={() => showDetails(x)}><u className='details'>Details</u></td>
                         </tr>
