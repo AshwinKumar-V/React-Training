@@ -18,9 +18,9 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />}>
             <Route index element={<Overview />} />
-            <Route path='client-list' element={<List />} />
+            <Route path='client-list' element={<List listType="Client" />} />
             <Route path='client-details' element={<Details />} />
-            <Route path='user-list' element={<List />} />
+            <Route path='user-list' element={<List listType="User" />} />
             <Route path='user-details' element={<Details />} />
             <Route path='about' element={<About />} />
             <Route path='help' element={<Help />} />
