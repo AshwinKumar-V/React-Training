@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const Navbar = () => {
+
+    const logout = () => {
+        localStorage.setItem("loggedIn", "false")
+        localStorage.setItem("username", "")
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -14,7 +20,7 @@ const Navbar = () => {
                         <Link className="nav-link" aria-current="page" to='help'>Help</Link>
                     </ul>
                 </div>
-                <Link className="nav-link" aria-current="page" to='/login'>Logout</Link>
+                <Link className="nav-link" aria-current="page" onClick={logout} to='/login'>Logout</Link>
             </nav>
         </>
     )
