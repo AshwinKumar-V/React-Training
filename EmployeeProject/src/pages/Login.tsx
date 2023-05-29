@@ -27,17 +27,18 @@ const Login = () => {
     return (
         <>
             {alert ? <Alert /> : null}
-            <form method="post" onSubmit={login}>
-                <h1>HTML Training</h1>
-                <div className="form-control">
-                    <label>username</label>
-                    <input type="text" id="username" name="username" />
+            <form method="post" onSubmit={login} className="flex_column">
+                <h1>Login</h1>
+                <div className="mb-3">
+                    <label className="form-label">Email address</label>
+                    <input type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
+                    {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
                 </div>
-                <div className="form-control">
-                    <label>Password</label>
-                    <input type="password" id="password" name="password" />
+                <div className="mb-3">
+                    <label className="form-label">Password</label>
+                    <input type="password" className="form-control" id="password" name="password" />
                 </div>
-                <input type="submit" value="Submit" />
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </>
     )

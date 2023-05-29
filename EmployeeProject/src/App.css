@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 } */
+
+.flex_row,
+.flex_column {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex_column {
+  flex-direction: column;
+}

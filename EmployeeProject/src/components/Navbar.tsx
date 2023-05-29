@@ -19,8 +19,8 @@ const Navbar = () => {
                         <Link className="nav-link" aria-current="page" to='about'>About</Link>
                         <Link className="nav-link" aria-current="page" to='help'>Help</Link>
                     </ul>
+                    <Link className="nav-link" aria-current="page" onClick={logout} to='/login'>Logout</Link>
                 </div>
-                <Link className="nav-link" aria-current="page" onClick={logout} to='/login'>Logout</Link>
             </nav>
         </>
     )

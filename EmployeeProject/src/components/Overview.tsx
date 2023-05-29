@@ -1,7 +1,13 @@
 
 const Overview = () => {
+
+    const username = localStorage.getItem("username")
+
     return (
-        <div>Overview</div>
+        <>
+            <h1>Dashboard</h1>
+            <h3>Hi {username},</h3>
+        </>
     )
 }
 
