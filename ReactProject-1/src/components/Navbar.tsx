@@ -1,10 +1,12 @@
 import BackgroundColor from "./BackgroundColor"
 
 interface Props {
-  alertText: string
+  alertText: string,
+  updateAlert: any
 }
 
-function Navbar({ alertText }: Props) {
+function Navbar({ alertText, updateAlert }: Props) {
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -29,7 +31,7 @@ function Navbar({ alertText }: Props) {
                 </ul>
               </li>
               <li className="nav-item"><BackgroundColor /></li>
-              <li className="nav-item"><button type="button" className="btn btn-outline-primary" onClick={() => document.getElementById("notification")?.classList.remove("d-none")}>{alertText}</button></li>
+              <li className="nav-item"><button type="button" className="btn btn-outline-primary" onClick={() => updateAlert(true)}>{alertText}</button></li>
             </ul>
           </div>
         </div>
