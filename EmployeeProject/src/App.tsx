@@ -19,9 +19,9 @@ function App() {
           <Route path='/dashboard' element={<Dashboard />}>
             <Route index element={<Overview />} />
             <Route path='client-list' element={<List listType="Client" />} />
-            <Route path='client-details' element={<Details />} />
+            <Route path='client-details' element={<Details type="client" />} />
             <Route path='user-list' element={<List listType="User" />} />
-            <Route path='user-details' element={<Details />} />
+            <Route path='user-details' element={<Details type="user" />} />
             <Route path='about' element={<About />} />
             <Route path='help' element={<Help />} />
             <Route path='*' element={<NotFound />} />

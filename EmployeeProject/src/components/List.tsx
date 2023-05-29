@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import clients from '../assets/clients.json'
 import users from '../assets/users.json'
 
@@ -23,12 +24,21 @@ interface client {
 
 const List = ({ listType }: Props) => {
 
+    const naviagte = useNavigate()
+
     let list = null
+    let path = ""
     if (listType === 'Client') {
         list = clients
+        path = "/dashboard/client-details"
     }
     else if (listType === 'User') {
         list = users
+        path = "/dashboard/user-details"
+    }
+
+    const showDetails = (item: any) => {
+        naviagte(path, { state: item })
     }
 
     return (
@@ -37,19 +47,20 @@ const List = ({ listType }: Props) => {
             <table className='table'>
                 <thead>
                     <tr>
-                        {Object.keys(list[0]).map((x) => (
-                            <th>{x}</th>
+                        {Object.keys(list[0]).map((x, i) => (
+                            <th key={i}>{x}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
                     {list?.map((x) => (
-                        <tr> {Object.values(x).map((data) => (<td>{data}</td>))}</tr>
+                        <tr>
+                            {Object.values(x).map((data, i) => (<td key={i}>{data}</td>))}
+                            <td onClick={() => showDetails(x)}><u className='details'>Details</u></td>
+                        </tr>
                     ))}
                 </tbody>
             </table>
-            {/* {list?.map((x) => (<p key={x.user_id}>x</p>))} */}
-            {/* {list?.map((x) => (<p key={x.user_id}>{x.user_name}</p>))} */}
         </>
     )
 }
