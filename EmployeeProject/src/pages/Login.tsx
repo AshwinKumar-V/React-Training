@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import Alert from "../components/Alert"
 
@@ -7,6 +7,14 @@ const Login = () => {
     // const [pswd, updatePswd] = useState("")
     const [alert, updateAlert] = useState(false)
     const navigate = useNavigate()
+
+    const ref = useRef<HTMLInputElement>(null)
+    useEffect(() => {
+        if (ref.current) {
+            ref.current.focus()
+        }
+    })
+
 
     // login validation
     const login = (e: FormEvent) => {
@@ -22,6 +30,7 @@ const Login = () => {
             // if invalid credentials
             updateAlert(true)
         }
+
     }
 
     return (
@@ -31,7 +40,7 @@ const Login = () => {
                 <h1>Login</h1>
                 <div className="mb-3">
                     <label className="form-label">Username</label>
-                    <input type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
+                    <input ref={ref} type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
                     {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
                 </div>
                 <div className="mb-3">
@@ -45,3 +54,7 @@ const Login = () => {
 }
 
 export default Login
+
+function userRef() {
+    throw new Error("Function not implemented.")
+}
