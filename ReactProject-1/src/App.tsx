@@ -19,16 +19,16 @@ function App() {
 
   return (
     <>
-      {/* {alertOn ? <Alert alertMessage="You're subscription is almost expiring!" updateAlert={updateAlert} /> : null}
+      {alertOn ? <Alert alertMessage="You're subscription is almost expiring!" updateAlert={updateAlert} /> : null}
       <Navbar alertText="Notification" updateAlert={updateAlert} />
       <Header />
       <div className='d-flex flex-row justify-content-between menu_content_wrapper'>
         <Menu />
         <Content name="Ashwin" favoriteMovies={['Inception', 'Interstellar', 'Tenet', 'Oppenheimer']} />
       </div>
-      <Footer /> */}
+      <Footer />
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout />} >
             <Route index element={<About />} />
@@ -36,7 +36,7 @@ function App() {
             <Route path='/ContactUs' element={<ContactUs />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   )
 }
