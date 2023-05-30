@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom"
 import Alert from "../components/Alert"
 
 const Login = () => {
-    // const [username, updateUsername] = useState("")
-    // const [pswd, updatePswd] = useState("")
+
     const [alert, updateAlert] = useState(false)
     const navigate = useNavigate()
 
-    const ref = useRef<HTMLInputElement>(null)
+    // useEffect to focus on username textbox
+    const focusRef = useRef<HTMLInputElement>(null)
     useEffect(() => {
-        if (ref.current) {
-            ref.current.focus()
+        if (focusRef.current) {
+            focusRef.current.focus()
         }
     })
 
@@ -21,7 +21,6 @@ const Login = () => {
         e.preventDefault()
         if ((e.target.username.value === 'admin') && (e.target.password.value === 'admin')) {
             // if valid credentials
-            // updateUsername(e.target.username.value)
             localStorage.setItem("loggedIn", "true")
             localStorage.setItem("username", e.target.username.value)
             navigate('/dashboard')
@@ -30,7 +29,6 @@ const Login = () => {
             // if invalid credentials
             updateAlert(true)
         }
-
     }
 
     return (
@@ -40,8 +38,7 @@ const Login = () => {
                 <h1>Login</h1>
                 <div className="mb-3">
                     <label className="form-label">Username</label>
-                    <input ref={ref} type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
-                    {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
+                    <input ref={focusRef} type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Password</label>
@@ -54,7 +51,3 @@ const Login = () => {
 }
 
 export default Login
-
-function userRef() {
-    throw new Error("Function not implemented.")
-}

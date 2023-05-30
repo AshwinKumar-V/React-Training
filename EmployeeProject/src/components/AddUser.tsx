@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export const AddUser = () => {
     const navigate = useNavigate()
 
+    // add user data from add-user form into users array
     const add = (e: FormEvent) => {
         e.preventDefault()
         users.push(Object.fromEntries(new FormData(e.target).entries()))

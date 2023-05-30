@@ -10,6 +10,7 @@ const List = ({ listType }: Props) => {
 
     const navigate = useNavigate()
 
+    // check if client-list or user-list is loaded
     let list = null
     if (listType === 'Client') {
         list = clients
@@ -18,6 +19,7 @@ const List = ({ listType }: Props) => {
         list = users
     }
 
+    // redirect to client/user details page
     const showDetails = (item: any) => {
         navigate(Object.values(item)[0], { state: item })
     }

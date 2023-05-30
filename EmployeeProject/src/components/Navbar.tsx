@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 const Navbar = () => {
 
+    // update localstorage after logout
     const logout = () => {
         localStorage.setItem("loggedIn", "false")
         localStorage.setItem("username", "")

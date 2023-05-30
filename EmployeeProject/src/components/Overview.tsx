@@ -1,6 +1,7 @@
 
 const Overview = () => {
 
+    // get username from localstorage after login
     const username = localStorage.getItem("username")
 
     return (

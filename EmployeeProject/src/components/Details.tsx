@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom"
 
 const Details = () => {
 
+    // get client/user details passed through props
     const location = useLocation()
     const details = location.state
 

@@ -1,4 +1,4 @@
-
+// Invalid login credentials alert
 const Alert = () => {
     return (
         <div className="alert alert-danger alert-dismissible fade show" role="alert">
