@@ -1,4 +1,4 @@
-[
+export default [
     {
         "client_id": "c01",
         "client_name": "client-1",

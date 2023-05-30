@@ -1,4 +1,4 @@
-[
+export default [
     {
         "user_id": "u01",
         "user_name": "user-1",

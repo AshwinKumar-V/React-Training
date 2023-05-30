@@ -30,7 +30,7 @@ const Login = () => {
             <form method="post" onSubmit={login} className="flex_column">
                 <h1>Login</h1>
                 <div className="mb-3">
-                    <label className="form-label">Email address</label>
+                    <label className="form-label">Username</label>
                     <input type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
                     {/* <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div> */}
                 </div>

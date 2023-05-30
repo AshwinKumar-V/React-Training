@@ -8,6 +8,7 @@ import List from './components/List'
 import Details from './components/Details'
 import { About } from './components/About'
 import Help from './components/Help'
+import { AddUser } from './components/AddUser'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
             <Route path='clients/:id' element={<Details />} />
             <Route path='users' element={<List listType="User" />} />
             <Route path='users/:id' element={<Details />} />
+            <Route path='users/add-user' element={<AddUser />} />
             <Route path='about' element={<About />} />
             <Route path='help' element={<Help />} />
             <Route path='*' element={<NotFound />} />

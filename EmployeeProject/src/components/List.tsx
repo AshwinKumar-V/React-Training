@@ -1,25 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom'
-import clients from '../assets/clients.json'
-import users from '../assets/users.json'
+import clients from '../assets/clients'
+import users from '../assets/users'
 
 interface Props {
     listType: string
-}
-
-interface user {
-    user_id: string,
-    user_name: string,
-    company_id: string,
-    company_name: string,
-    user_permission: string,
-    user_type: string
-}
-
-interface client {
-    client_id: string,
-    client_name: string,
-    client_permission: string,
-    client_type: string
 }
 
 const List = ({ listType }: Props) => {
@@ -41,7 +25,7 @@ const List = ({ listType }: Props) => {
     return (
         <>
             <h1>{listType} list</h1>
-            {listType === 'User' ? <Link to='AddUser'>Add User</Link> : null}
+            {listType === 'User' ? <button className='btn'><Link to='add-user'>Add User</Link></button> : null}
             <table className='table'>
                 <thead>
                     <tr>
