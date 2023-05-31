@@ -11,7 +11,7 @@ const useRandomData = () => {
     // to call api and update view
     const ref = useRef({})
     useEffect(() => {
-        axios.get("localhost:5278/admin")
+        axios.get("https://jsonplaceholder.typicode.com/todos/" + data)
             .then((res) => {
                 ref.current = res.data
                 updateError(null)

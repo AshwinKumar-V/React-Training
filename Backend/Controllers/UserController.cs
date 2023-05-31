@@ -6,7 +6,7 @@ using Backend.Model;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("users")]
     public class UserController : Controller
     {
         public List<User> Index()
