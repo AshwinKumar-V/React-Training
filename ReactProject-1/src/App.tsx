@@ -9,10 +9,12 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Menu from './components/Menu'
 import Navbar from './components/Navbar'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import About from './pages/About'
-import ContactUs from './pages/ContactUs'
-import { Layout } from './components/Layout'
+// import { BrowserRouter, Routes, Route } from 'react-router-dom'
+// import About from './pages/About'
+// import ContactUs from './pages/ContactUs'
+// import { Layout } from './components/Layout'
+// import UserListSample from "./components/UserListSample"
+
 
 function App() {
   const [alertOn, updateAlert] = useState(false)
