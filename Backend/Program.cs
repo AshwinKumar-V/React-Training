@@ -10,11 +10,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-                      policy =>
-                      {
-                          policy.WithOrigins("*");
-                      });
+    options.AddPolicy(name: MyAllowSpecificOrigins, 
+        policy => { 
+            policy.WithOrigins("*");
+            policy.WithHeaders("*");
+        });
 });
 
 var app = builder.Build();
@@ -27,6 +27,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors(MyAllowSpecificOrigins);
+
 app.UseAuthorization();
 
 app.MapControllers();

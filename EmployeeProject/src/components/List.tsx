@@ -29,6 +29,7 @@ const List = ({ listType }: Props) => {
     const navigate = useNavigate()
     const { list, error, isLoading, updateList } = useUsers()
 
+
     // check if client-list or user-list is loaded
     useEffect(() => {
         if (listType === 'Client') {
