@@ -1,33 +1,48 @@
 import { Link, useNavigate } from 'react-router-dom'
 import clients from '../assets/clients'
-import useUsers from '../hooks/useUsers'
 import { useEffect } from 'react'
-// import users from '../assets/users'
+import useUsers from '../hooks/useUsers'
 
 interface Props {
     listType: string
 }
 
+export interface client {
+    client_id: string,
+    client_name: string,
+    client_permission: string,
+    client_type: string
+}
+
+export interface user {
+    user_id: string,
+    user_name: string,
+    comapny_id: string,
+    company_name: string,
+    user_permission: string,
+    user_type: string
+}
+
+
 const List = ({ listType }: Props) => {
 
     const navigate = useNavigate()
-    const { data, error, isLoading } = useUsers()
+    const { list, error, isLoading, updateList } = useUsers()
 
     // check if client-list or user-list is loaded
-    let list = null
     useEffect(() => {
         if (listType === 'Client') {
-            list = clients
+            updateList(clients)
         }
-        else if (listType === 'User' && data) {
-            list = data
+        else if (listType === 'User') {
+            updateList([])
         }
-    }, [data])
+    }, [])
 
 
 
     // redirect to client/user details page
-    const showDetails = (item: any) => {
+    const showDetails = (item: client | user) => {
         navigate(Object.values(item)[0], { state: item })
     }
 
@@ -36,7 +51,7 @@ const List = ({ listType }: Props) => {
             <h1>{listType} list</h1>
             {listType === 'User' ? <button className='btn'><Link to='add-user'>Add User</Link></button> : null}
 
-            {isLoading ? <h4>Loading...</h4> : (error ? <p>{error}</p> :
+            {isLoading ? <h4>Loading...</h4> : (list.length == 0 ? <p>{error}</p> :
                 <table className='table'>
                     <thead>
                         <tr>
@@ -46,7 +61,7 @@ const List = ({ listType }: Props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {list?.map((x) => (
+                        {list.map((x) => (
                             <tr key={Object.values(x)[0]}>
                                 {Object.values(x).map((data, i) => (<td key={i}>{data}</td>))}
                                 <td onClick={() => showDetails(x)}><u className='details'>Details</u></td>
