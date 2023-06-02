@@ -14,6 +14,7 @@ namespace Backend.Controllers
         [HttpGet]
         public List<User> GetUsers()
         {
+            Console.WriteLine("GET /users");
             List<User> users = new List<User>();
 
             // MSSQL connection
@@ -45,7 +46,7 @@ namespace Backend.Controllers
         {
             Console.WriteLine("POST /users");
 
-            // mssql connection
+            // MSSQL connection
             SqlConnection connection = new SqlConnection(ConnectionString);
             connection.Open();
 
@@ -58,6 +59,57 @@ namespace Backend.Controllers
             cmd.Parameters.AddWithValue("@userType", user.userType);
             cmd.ExecuteNonQuery();
 
+            connection.Close();
+            return;
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public User GetUser(int id)
+        {
+            Console.WriteLine("GET /users/:id");
+            User user = new();
+
+            // MSSQL connection
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            connection.Open();
+
+            // fetch specific user from DB based on userID
+            SqlCommand cmd = new SqlCommand("select * from Users where userID = @userID", connection);
+            cmd.Parameters.AddWithValue("@userID", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                user.userID = dr["userID"].ToString();
+                user.userName = dr["userName"].ToString();
+                user.companyID = dr["companyID"].ToString();
+                user.companyName = dr["companyName"].ToString();
+                user.userPermission = dr["userPermission"].ToString();
+                user.userType = dr["userType"].ToString();
+            }
+
+            dr.Close();
+            connection.Close();
+            return user;
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public void DeleteUser(int id)
+        {
+            Console.WriteLine("DELETE /users/:id");
+            User user = new();
+
+            // MSSQL connection
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            connection.Open();
+
+            // fetch specific user from DB based on userID
+            SqlCommand cmd = new SqlCommand("delete from Users where userID = @userID", connection);
+            cmd.Parameters.AddWithValue("@userID", id);
+            cmd.ExecuteNonQuery();
+            
+            connection.Close();
             return;
         }
     }
