@@ -42,13 +42,13 @@ const Login = () => {
                 <h1>Login</h1>
                 <div className="mb-3">
                     <label className="form-label">Username</label>
-                    <input ref={focusRef} type="text" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
+                    <input ref={focusRef} type="text" data-testid="username" className="form-control" id="username" name="username" aria-describedby="emailHelp" />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Password</label>
-                    <input type="password" className="form-control" id="password" name="password" />
+                    <input type="password" data-testid="password" className="form-control" id="password" name="password" />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" data-testid="submitButton" className="btn btn-primary">Submit</button>
             </form>
         </>
     )
