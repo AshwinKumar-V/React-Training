@@ -12,7 +12,7 @@ const useList = (listType: string) => {
     // fetch users from backend
     useEffect(() => {
         updateLoading("Loading...")
-        axios.get(`http://localhost:5278/${listType}`)
+        axios.get(`${import.meta.env.VITE_BACKEND_ADDRESS}/${listType}`)
             .then((res) => {
                 updateList(res.data)
                 updateError(null)

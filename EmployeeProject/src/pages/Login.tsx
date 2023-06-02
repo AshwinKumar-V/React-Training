@@ -1,6 +1,7 @@
 import { FormEvent, useEffect, useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import Alert from "../components/Alert"
+import axios from "axios"
 
 const Login = () => {
 
@@ -19,16 +20,19 @@ const Login = () => {
     // login validation
     const login = (e: FormEvent) => {
         e.preventDefault()
-        if ((e.target.username.value === 'admin') && (e.target.password.value === 'admin')) {
-            // if valid credentials
-            localStorage.setItem("loggedIn", "true")
-            localStorage.setItem("username", e.target.username.value)
-            navigate('/dashboard')
+
+        const credentials = {
+            username: e.target.username.value,
+            password: e.target.password.value
         }
-        else {
-            // if invalid credentials
-            updateAlert(true)
-        }
+
+        axios.post(`${import.meta.env.VITE_BACKEND_ADDRESS}/login`, credentials)
+            .then(() => {
+                localStorage.setItem("loggedIn", "true")
+                localStorage.setItem("username", e.target.username.value)
+                navigate('/dashboard')
+            })
+            .catch(() => updateAlert(true))
     }
 
     return (
