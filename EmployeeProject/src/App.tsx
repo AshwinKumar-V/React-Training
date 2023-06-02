@@ -17,7 +17,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />}>
             <Route index element={<Overview />} />
             <Route path='clients' element={<List listType="clients" />} />
