@@ -2,7 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { client, user } from "../components/List"
 
-const useUsers = () => {
+
+const useList = (listType: string) => {
 
     const [list, updateList] = useState<Array<client | user>>([])
     const [error, updateError] = useState(null)
@@ -11,7 +12,7 @@ const useUsers = () => {
     // fetch users from backend
     useEffect(() => {
         updateLoading("Loading...")
-        axios.get("http://localhost:5278/users")
+        axios.get(`http://localhost:5278/${listType}`)
             .then((res) => {
                 updateList(res.data)
                 updateError(null)
@@ -23,9 +24,9 @@ const useUsers = () => {
             .finally(() => {
                 updateLoading("")
             })
-    }, [])
+    }, [listType])
 
-    return ({ list, error, isLoading, updateList })
+    return ({ list, error, isLoading })
 }
 
-export default useUsers
+export default useList

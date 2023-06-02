@@ -33,7 +33,7 @@ const Login = () => {
 
     return (
         <>
-            {alert ? <Alert /> : null}
+            {alert ? <Alert alertMessage="Invalid Credentials!" /> : null}
             <form method="post" onSubmit={login} className="flex_column">
                 <h1>Login</h1>
                 <div className="mb-3">

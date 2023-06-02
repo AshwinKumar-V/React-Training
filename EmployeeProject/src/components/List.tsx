@@ -1,7 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
-import clients from '../assets/clients'
-import { useEffect } from 'react'
-import useUsers from '../hooks/useUsers'
+import useUsers from '../hooks/useList'
+import axios from 'axios'
 
 interface Props {
     listType: string
@@ -27,30 +26,27 @@ export interface user {
 const List = ({ listType }: Props) => {
 
     const navigate = useNavigate()
-    const { list, error, isLoading, updateList } = useUsers()
-
-
-    // check if client-list or user-list is loaded
-    useEffect(() => {
-        if (listType === 'Client') {
-            updateList(clients)
-        }
-        else if (listType === 'User') {
-            updateList([])
-        }
-    }, [])
-
-
+    const { list, error, isLoading } = useUsers(listType)
 
     // redirect to client/user details page
     const showDetails = (item: client | user) => {
         navigate(Object.values(item)[0], { state: item })
     }
 
+    const deleteUser = (item: client | user) => {
+        const id = Object.values(item)[0]
+        axios.delete(`${import.meta.env.VITE_BACKEND_ADDRESS}/${listType}/${id}`)
+            .then(() => {
+                console.log("Successfully deleted user")
+                window.location.reload()
+            })
+            .catch((err) => console.error(err))
+    }
+
     return (
         <>
             <h1>{listType} list</h1>
-            {listType === 'User' ? <button className='btn'><Link to='add-user'>Add User</Link></button> : null}
+            {listType === 'users' ? <button className='btn'><Link to='add-user'>Add User</Link></button> : <button className='btn'><Link to='add-client'>Add Client</Link></button>}
 
             {isLoading ? <h4>Loading...</h4> : (list.length == 0 ? <p>{error}</p> :
                 <table className='table'>
@@ -66,6 +62,7 @@ const List = ({ listType }: Props) => {
                             <tr key={Object.values(x)[0]}>
                                 {Object.values(x).map((data, i) => (<td key={i}>{data}</td>))}
                                 <td onClick={() => showDetails(x)}><u className='details'>Details</u></td>
+                                <td onClick={() => deleteUser(x)}><button type="button" className="btn btn-danger">Delete</button></td>
                             </tr>
                         ))}
                     </tbody>

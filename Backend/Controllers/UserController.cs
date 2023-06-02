@@ -45,6 +45,7 @@ namespace Backend.Controllers
         public void PostUser([FromBody] User user)
         {
             Console.WriteLine("POST /users");
+            Console.WriteLine(user);
 
             // MSSQL connection
             SqlConnection connection = new SqlConnection(ConnectionString);

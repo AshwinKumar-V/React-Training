@@ -9,6 +9,7 @@ import Details from './components/Details'
 import { About } from './components/About'
 import Help from './components/Help'
 import { AddUser } from './components/AddUser'
+import { AddClient } from './components/AddClient'
 
 function App() {
 
@@ -19,9 +20,10 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/dashboard' element={<Dashboard />}>
             <Route index element={<Overview />} />
-            <Route path='clients' element={<List listType="Client" />} />
+            <Route path='clients' element={<List listType="clients" />} />
             <Route path='clients/:id' element={<Details />} />
-            <Route path='users' element={<List listType="User" />} />
+            <Route path='clients/add-client' element={<AddClient />} />
+            <Route path='users' element={<List listType="users" />} />
             <Route path='users/:id' element={<Details />} />
             <Route path='users/add-user' element={<AddUser />} />
             <Route path='about' element={<About />} />
